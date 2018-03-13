@@ -10,7 +10,8 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "mobilecaddy": "node_modules/mobilecaddy-codeflow/bin/mobilecaddy-app-scripts.js"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -37,6 +38,5 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2",
     "mobilecaddy-codeflow": "git+https://github.com/mobilecaddy/codeflow.git#v2"
-  },
-  "description": "MobileCaddy Ionic project"
+  }
 }
