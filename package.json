@@ -36,7 +36,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2",
-    "mobilecaddy-codeflow": "git+https://github.com/mobilecaddy/codeflow.git#v2",
+    "mobilecaddy-codeflow": "git+https://github.com/mobilecaddy/codeflow.git#v2"
   },
   "description": "MobileCaddy Ionic project"
 }
