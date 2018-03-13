@@ -22,9 +22,12 @@ npm run mobilecaddy setup
 
 ## Running the app in CodeFlow
 
-* Make sure you have a CORS proxy running - see [this one](https://github.com/ccoenraets/cors-proxy)
+* We need to start a CORS server
+```
+npm run mobilecaddy cors
+```
 
-* Start your app with this
+* Start your app in a new shell with this
 ```
 ionic serve --p 3030
 ```
