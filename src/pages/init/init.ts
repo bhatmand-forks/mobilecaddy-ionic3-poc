@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import  { startup, getStatus } from 'mobilecaddy-utils/startup';
-// import  { startup, getStatus } from '../../assets/js/startup';
 import { TabsPage } from '../tabs/tabs';
 
 
