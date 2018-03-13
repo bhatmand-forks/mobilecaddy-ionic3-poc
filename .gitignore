@@ -33,3 +33,10 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+# MobileCaddy Bits
+src/assets/js/MockCordova.js
+src/assets/js/codeflow-emulator.js
+src/assets/js/mockVFRemote.js
+src/assets/js/force.js
+src/oauthcallback.html
