@@ -40,3 +40,55 @@ Ours app can read data from local .json files, instead of talking to the actual 
 ```
 npm run mobilecaddy cors record
 ```
+
+
+## Using the MobileCaddy libs in your app
+
+### Example typescript, for a Home Page
+
+Note: Idea is to move the InitialLoadComplete check etc into the new Sync component (that will take over from SyncService), to have just a single call in the "Home" page to Sync, and the component would do either initial sync/cold sync etc.
+
+The example below is mostly to show how you can import and use the `devUtils`
+
+```
+import { Component } from '@angular/core';
+import { LoadingController, NavController } from 'ionic-angular';
+import * as devUtils from 'mobilecaddy-utils/devUtils.js';
+
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+export class HomePage {
+
+	projects;
+	accountTable: string = 'Account__ap';
+
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {
+
+    if ( localStorage.getItem("syncState") == 'InitialLoadComplete' ) {
+      this.showAccounts();
+    } else {
+    	let loader = this.loadingCtrl.create({
+        content: "Running Sync...",
+        duration: 3000
+      });
+      loader.present();
+
+    	devUtils.initialSync([this.accountTable]).then(res => {
+        localStorage.setItem('syncState', 'InitialLoadComplete');
+    		this.showAccounts();
+    	});
+    }
+  }
+
+  showAccounts(): void {
+    devUtils.readRecords(this.accountTable).then(res => {
+      console.log("res", res);
+      // loader.dismiss();
+      this.projects = res.records;
+    });
+  }
+
+}
+```
