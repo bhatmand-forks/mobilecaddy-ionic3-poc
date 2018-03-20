@@ -8,6 +8,23 @@
 
 ## Getting Started
 
+There are 2 ways to get started - the best is to use the MobileCaddy CLI, and the other is more manual.
+
+### 1) Use the MobileCaddy CLI (preferred)
+
+First install the v2 MobileCaddy CLI
+```
+npm i -g https://github.com/MobileCaddy/mobilecaddy-cli.git#unstable-v2
+```
+
+You can then start a new MobileCaddy project (from this repo) with this command. The last arg is the name of your new project
+
+```
+mobilecaddy new https://github.com/toddhalfpenny/mobilecaddy-ionic3-poc/archive/master.zip myNewApp
+```
+
+### 2) Manual Approach
+
 * Clone, or download and unzip, this repo, and `cd` into the dir
 
 * Install dependencies
@@ -21,6 +38,14 @@ npm run mobilecaddy setup
 ```
 
 ## Running the app in CodeFlow
+
+### With the new CLI
+
+```
+mobilecaddy serve
+```
+
+### With the old CLI
 
 * We need to start a CORS server (if wanting to communiacate with SFDC, i.e. when not using mock data).
 ```
@@ -37,6 +62,14 @@ You can also use the `?local` in the query string to use mock data (if you have 
 ## Recording mock data
 
 Ours app can read data from local .json files, instead of talking to the actual Salesforce.com platform. To populate these .json files we can record responses from SFDC with the use of the `record` argument when running our CORS server, like this;
+
+### With the new CLI
+
+```
+mobilecaddy serve --rec
+```
+
+### With the old CLI
 ```
 npm run mobilecaddy cors record
 ```
@@ -92,3 +125,13 @@ export class HomePage {
 
 }
 ```
+
+## Create resources for pushing to Salesforce
+
+At the moment there isn't an auto-deploy. But you can create the assets you need (a zip for a staic resource, and 2 templates for Visualforce pages) with the new CLI
+
+```
+mobilecaddy deploy
+```
+
+This will create a zip file in your project's root directory, and 2 visualforce pages in the temporary `mc-tmp` directory.
